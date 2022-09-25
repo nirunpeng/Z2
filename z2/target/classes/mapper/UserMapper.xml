@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.com_jc_tree.dao.ClusterMapper">
+    <resultMap id="hadoop" type="com.example.com_jc_tree.entity.Cluster">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="threehitrate" column="threehitrate"/>
+        <result property="backboard" column="backboard"/>
+        <result property="score" column="shoting"/>
+        <result property="session" column="steal"/>
+        <result property="blocks" column="blocks"/>
+        <result property="assist" column="assist"/>
+        <result property="gametime" column="gametime"/>
+        <result property="salary" column="salary"/>
+    </resultMap>
+
+    <!--    三分命中率查询-->
+    <select id="selectthree"  resultMap="hadoop">
+        select  *  from nb order by threehitrate desc limit 0,10
+    </select>
+    <!--    篮板-->
+    <select id="selectback"  resultMap="hadoop">
+        select  *  from nb order by backboard desc limit 0,10
+    </select>
+    <!--    得分-->
+    <select id="selectscore"  resultMap="hadoop">
+        select  *  from nb order by score desc limit 0,10
+    </select>
+    <!--    投篮命中率-->
+    <select id="selectshot"  resultMap="hadoop">
+        select  *  from nb order by shoting desc limit 0,10
+    </select>
+    <!--    抢断-->
+    <select id="selectsteal"  resultMap="hadoop">
+        select  *  from nb order by steal desc limit 0,10
+    </select>
+    <!--    场次-->
+    <select id="selectsession"  resultMap="hadoop">
+        select  *  from nb order by session desc limit 0,10
+    </select>
+    <!--    盖帽-->
+    <select id="selectblocks"  resultMap="hadoop">
+        select  *  from nb order by blocks desc limit 0,10
+    </select>
+    <!--    助攻-->
+    <select id="selectassist"  resultMap="hadoop">
+        select  *  from nb order by assist desc limit 0,10
+    </select>
+    <!--    场均时间-->
+    <select id="selectgametime"  resultMap="hadoop">
+        select  *  from nb order by gametime desc limit 0,10
+    </select>
+    <!--    薪资-->
+    <select id="selectsalary"  resultMap="hadoop">
+        select  *  from nb order by salary desc limit 0,10
+    </select>
+    <!--    总查询-->
+    <select id="getAll"  resultMap="hadoop">
+        select * from nb  limit 0,30
+    </select>
+
+
+</mapper>
